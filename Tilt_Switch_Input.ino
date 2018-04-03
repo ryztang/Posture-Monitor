@@ -22,8 +22,7 @@ int after = 0;
 // 1 when bad, 0 when good
 // variable for reading the tilt switch status
 
-void setup() {  
-  //pinMode(ledPin, OUTPUT);  // set the LED pin as output      
+void setup() {   
   pinMode(tiltPin, INPUT);  // set the tilt switch pin as input
   pinMode(tiltPin2, INPUT);
   pinMode(tiltPin3, INPUT);
@@ -50,10 +49,8 @@ void loop(){
 
   // check if tilt switch is tilted.
   if (tiltState == HIGH) {
-    after = 1;     
-    //digitalWrite(ledPin, HIGH);
+    after = 1;
     pinMode(speakerPin, OUTPUT);
-    
     if (before != after) {
       Serial.println("Bad posture area 1!");
       digitalWrite(speakerPin, LOW);
@@ -62,10 +59,8 @@ void loop(){
     }
     before = after;
   } else if (tiltState2 == HIGH) {
-    after = 2;     
-    //digitalWrite(ledPin, HIGH);
+    after = 2;
     pinMode(speakerPin, OUTPUT);
-    
     if (before != after) {
       Serial.println("Bad posture area 2!");
       digitalWrite(speakerPin, LOW);
@@ -74,8 +69,7 @@ void loop(){
     }
     before = after;
   } else if (tiltState3 == HIGH) {
-    after = 3;     
-    //digitalWrite(ledPin, HIGH);
+    after = 3;
     pinMode(speakerPin, OUTPUT); 
     if (before != after) {
       Serial.println("Bad posture area 3!");
@@ -83,9 +77,7 @@ void loop(){
       digitalWrite(speakerPin, HIGH);
       delay(50);
     }
-    before = after;
-    
-    
+    before = after;   
   } else {
     after = 0;
     pinMode(speakerPin, INPUT);
@@ -93,8 +85,6 @@ void loop(){
       Serial.println("Good posture!");
     }
     before = after;
-    
-    //digitalWrite(ledPin, LOW); 
   }
   delay(750);
   ++loopnum;
