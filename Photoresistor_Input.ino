@@ -14,7 +14,7 @@ void setup() {
 }
 
 void loop() {
-  sensorValue = analogRead(sensorPin);
+  sensorValue = analogRead(sensorPin);  // Whether or not laser points at photoresistor
   Serial.println(sensorValue, DEC);
   if (sensorValue < 600) {
     digitalWrite(speakerPin, HIGH);
